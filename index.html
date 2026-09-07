@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Havering - PDF Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="desigin tab.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f0f4f8, #ffffff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      margin: 40px 20px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Logo alignment & size fix */
+    .logo-header {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+
+    .logo-container1 {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+     
+    .logo-container1 img {
+      max-height: 140px;
+      max-width: 250px;
+      object-fit: contain;
+    }
+
+    .logo-container3 {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-container3 img {
+      max-height: 140px;
+      max-width: 250px;
+      object-fit: contain;
+    }
+    
+    .logo-container4 {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-container4 img {
+      max-height: 100px;
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin-top: 0;
+    }
+    
+
+    p {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+
+    button, .link-button {
+      padding: 14px 24px;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      background-color: #0073e6;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      display: inline-block;
+      min-width: 260px;
+      max-width: 300px;
+    }
+
+    button:hover, .link-button:hover {
+      background-color: #005bb5;
+      transform: scale(1.03);
+    }
+
+    iframe {
+      display: none;
+      width: 100%;
+      height: 80vh;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .fullscreen-link {
+      display: none;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .fullscreen-link a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+
+    .fullscreen-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .logo-header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      button, .link-button {
+        width: 90%;
+        min-width: unset;
+        max-width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Logo Section -->
+    <div class="logo-header">
+      <div class="logo-container1">
+        <img src="Design Specifics logo.png" alt="Design Specifics Logo">
+      </div>
+      <div class="logo-container3">
+        <img src="St Albans.png" alt="St Albans logo">
+      </div>
+      <div class="logo-container4">
+        <img src="WPS LOGO.png" alt="WPS LOGO">
+      </div>
+    </div>
+
+    <!-- Heading -->
+    <p>Select a report to preview below or open in fullscreen:</p>
+
+    <!-- Button Section -->
+    <div class="btn-group">
+      <a href="https://app.powerbi.com/view?r=eyJrIjoiMWQwNzMwNmUtOWZhNi00MWNjLTg3ZWEtZWIwYWQxYzlkOWY5IiwidCI6ImZmMTBhMTYwLTNiMDAtNGU2NC05MGRlLTRlYTEwMmQ5YjllYSJ9" target="_blank" class="link-button">📊 Dashboard</a>
+      <a href="https://viewer.autodesk.com/id/dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YTM2MHZpZXdlci1wcm90ZWN0ZWQvdDE3NjMxMTUxMTlfOTBhMjgxMDMtMTNhZS00NzI4LTg5MDItZWRiYWI3OWY0MDg4LnJ2dA?sheetId=MDU0NjMzNGUtNzI5Ni05ZjgzLWY5MmYtOTEwNTc1MTVkN2U1" target="_blank" class="link-button">📹 Digital twin - Residential</a>
+      <button onclick="showPDF('', '')">📄 Housing stock study</button>    
+    </div>
+    </div>
+
+    <!-- PDF Preview -->
+    <iframe id="pdfViewer"></iframe>
+
+    <!-- Fullscreen link -->
+    <div class="fullscreen-link" id="fullscreenLink">
+      <a href="#" id="fullscreenHref" target="_blank">🔗 Open in Fullscreen</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Design Specifics. All rights reserved.
+  </footer>
+
+  <script>
+    function showPDF(pdfUrl, label) {
+      const viewer = document.getElementById('pdfViewer');
+      const fullscreen = document.getElementById('fullscreenLink');
+      const href = document.getElementById('fullscreenHref');
+
+      viewer.style.display = 'block';
+      viewer.src = pdfUrl;
+
+      fullscreen.style.display = 'block';
+      href.href = pdfUrl;
+      href.textContent = `🔗 Open "${label}" in Fullscreen`;
+    }
+  </script>
+
+</body>
+</html>
